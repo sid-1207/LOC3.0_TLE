@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Login</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="stylesheets/login.css" />
+    </head>
+
+    <body>
+        <div class="container pl-5" style="font-size: 22px">
+            <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+            <lord-icon
+                src="https://cdn.lordicon.com//dxjqoygy.json"
+                trigger="loop"
+                colors="primary:#121331,secondary:#06b806"
+                style="width: 100px; height: 100px"
+            >
+            </lord-icon>
+            <a style="text-decoration: none; color: black" href="/"
+                >Welcome to <b>Doct<span style="color: #06b806">Aid</span> </b></a>
+                
+                <div style="text-align: end;">
+                  <b>Registering as a Patient</b>
+                  <br>
+                  <small><a href="/register?user=abufhfeuh4e">Are you a doctor? Register as a Doctor.</a></small>
+                </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-2 col-md-4">
+                <div class="container"></div>
+            </div>
+            <div class="col-8 col-md-4">
+                <div style="font-size: x-large; color: rgb(0, 182, 0)">Sign Up</div>
+                <small>Welcome!We'll take all your worries away!</small>
+                <br />
+            </div>
+            <div class="col-2 col-md-4">
+                <div class="container"></div>
+            </div>
+        </div>
+
+        <br />
+        <div class="container text-center" style="max-width: 600px">
+            <div class="mt-0">
+              <form action="/register" method="POST">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="username"
+                    id="name"
+                    class="form-control"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="email@example.com"
+                  />
+                </div>
+                
+                <div class="form-group">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="form-control"
+                    placeholder="enter your passsword"
+                  />
+                </div>
+                <button
+                  name="login"
+                  id="login"
+                  class="btn btn-outline-success"
+                  value="Login"
+                >
+                  Register
+                </button>
+              </form>
+              <a href="#!" class="forgot-password-link">Forgot password?</a>
+              <p class="login-wrapper-footer-text">
+                Already have an account?
+                <a href="/login" class="text-reset">Login here</a>
+              </p>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
+
+
+

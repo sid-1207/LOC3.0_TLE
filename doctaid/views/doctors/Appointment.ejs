@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="stylesheets/login.css" />
+  </head>
+
+  <body>
+    <div class="container pl-5" style="font-size: 22px">
+      <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+      <lord-icon
+        src="https://cdn.lordicon.com//dxjqoygy.json"
+        trigger="loop"
+        colors="primary:#121331,secondary:#06b806"
+        style="width: 100px; height: 100px"
+      >
+      </lord-icon>
+      <a style="text-decoration: none; color: black" href="/"
+        >Doctors at <b>Doct<span style="color: #06b806">Aid</span> </b></a
+      >
+
+      <div style="text-align: end">
+        <b>Appointment with : <%= doc.username %></b>
+        <br />
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-4">
+        <div class="container"></div>
+      </div>
+      <div class="col-4">
+        <div style="font-size: x-large; color: rgb(0, 182, 0)">
+          Details Form
+        </div>
+        <br />
+      </div>
+      <div class="col-4">
+        <div class="container"></div>
+      </div>
+    </div>
+
+    <br />
+    <div class="container text-center" style="max-width: 800px">
+      <div class="mt-0">
+        <form
+          action="/doctor/<%= doc._id %>/makeappointment"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="date">Enter Date</label>
+                <input
+                  type="text"
+                  name="date"
+                  id="date"
+                  class="form-control"
+                  placeholder="dd/mm/yyyy"
+                />
+              </div>
+              <div class="form-group">
+                <label for="time">Enter preferred time</label>
+                <input
+                  type="text"
+                  name="time"
+                  id="time"
+                  class="form-control"
+                  placeholder="HH:MM "
+                />
+              </div>
+              <div class="form-group mb-2">
+                <label for="body">Reason for meeting</label>
+                <input
+                  type="textarea"
+                  name="body"
+                  id="body"
+                  class="form-control"
+                  placeholder="....."
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="specialisation">Prev Reports</label>
+                <input
+                  type="file"
+                  name="report"
+                  id="specialisation"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="clinicAddress">Any previous appointments</label>
+                <input
+                  type="text"
+                  name="prev"
+                  id="clinicAddress"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-success">Book</button>
+        </form>
+        >
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

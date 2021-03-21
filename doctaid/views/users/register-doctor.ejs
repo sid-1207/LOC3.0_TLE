@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Login</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="stylesheets/login.css" />
+    </head>
+
+    <body>
+        <div class="container pl-5" style="font-size: 22px">
+            <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+            <lord-icon
+                src="https://cdn.lordicon.com//dxjqoygy.json"
+                trigger="loop"
+                colors="primary:#121331,secondary:#06b806"
+                style="width: 100px; height: 100px"
+            >
+            </lord-icon>
+            <a style="text-decoration: none; color: black" href="/"
+                >Welcome to <b>Doct<span style="color: #06b806">Aid</span> </b></a>
+                
+                <div style="text-align: end;">
+                  <b>Registering as a Doctor</b>
+                  <br>
+                  <small><a href="/register">Not a doctor? Register as a Patient.</a></small>
+                </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-4">
+                <div class="container"></div>
+            </div>
+            <div class="col-4">
+                <div style="font-size: x-large; color: rgb(0, 182, 0)">Sign Up</div>
+                <small>Welcome! Get yourself registered Now !</small>
+                <br />
+            </div>
+            <div class="col-4">
+                <div class="container"></div>
+            </div>
+        </div>
+
+        <br />
+        <div class="container text-center" style="max-width: 800px">
+            <div class="mt-0">
+                <form action="/register-doctor" method="POST">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    class="form-control"
+                                    placeholder="email@example.com"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input
+                                    type="username"
+                                    name="username"
+                                    id="username"
+                                    class="form-control"
+                                    placeholder="abc"
+                                />
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="password">Password</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    class="form-control"
+                                    placeholder="enter your passsword"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="specialisation">Specalisation</label>
+                                <input
+                                    type="text"
+                                    name="specialisation"
+                                    id="specialisation"
+                                    class="form-control"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="clinicAddress">Clinic Address</label>
+                                <input
+                                    type="text"
+                                    name="clinicAddress"
+                                    id="clinicAddress"
+                                    class="form-control"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="contact">Contact Number</label>
+                                <input
+                                    type="number"
+                                    name="contact"
+                                    id="contact"
+                                    class="form-control"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <button name="login" id="login" class="btn btn-outline-success">
+                        Register
+                    </button>
+                </form>
+                <p >
+                    Already have an account?
+                    <a href="/login" class="text-reset">Login here</a>
+                </p>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="/stylesheets/home.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>DoctAid</title>
+  </head>
+  <body>
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <div class="profileinfo">
+            <div id="profilephoto"></div>
+            <br>
+            <b style="color:white;font-size: 20px;letter-spacing:2px;"><%= currentUser.email %> </b></b>
+            <br>
+            <a href="/" style="color: white;">
+              <div style="color:white;font-size: small;">Technology that transforms patient outreach.</div>
+            </a>
+            <br>
+            <br>
+            
+          </div>
+        <a href="/home" style="color:white;font-weight:600">Appointments</a>
+        <hr class="navhr">
+        <a href="/finddoctors">Doctors</a>
+        
+        <hr class="navhr">
+        <a href="/logout">Log Out</a>
+        <hr class="navhr">
+    </div>
+  
+    <!-- Page content -->
+    <div class="main">
+    <br>
+    <b style="font-size: 20px;"><i> <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+      <lord-icon
+          src="https://cdn.lordicon.com//hsotfjpx.json"
+          trigger="loop"
+          colors="primary:#121331,secondary:#66ee78"
+          style="width:100px;height:100px">
+      </lord-icon> My Appointments</i></b>
+    <hr>
+    <div class="container ">
+      <% if( apt.length >0){ %>
+        <table class="table table-striped table-bordered table-hover p-2">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">When</th>
+              <th scope="col">Doctor </th>
+              <th scope="col">Patient</th>
+              <th scope="col">Details</th>
+              <th scope="col">VideoCall</th>
+              <th scope="col">Chat</th>
+              <th scope="col">Delete Apt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% var j=0 %>
+          <% for(var i=apt.length-1;i >-1 ; i-- ){ %>
+            <tr>
+              <th scope="row"><%= j+1 %></th>
+              <td><%= apt[i].date %> <%= apt[i].time %>Hrs</td>
+              <td><%= apt[i].doctor.username %></td>
+              <td><%= apt[i].patient.username %></td>
+              <td>details</td>
+              <td><a href="http://localhost:3000/<%= apt[i].link %>" target="_blank"><i class="fas fa-video"></i></a></td>
+              <td><form action="/chat" method="POST">
+                <input type="text" value="<%=apt[i].doctor.username%>" name="doctorusername" style="display: none;">
+                <input type="text" value="<%=apt[i].patient.username%>" name="patientusername" style="display: none;">
+                <button href="" class="btn btn-sm btn-success">CHAT</button></form></td>
+              <td><form action="/delete/<%=apt[i]._id%>?_method=DELETE" method="POST"><button>Delete</button></form></td>
+              <% j=j+1 %>
+            </tr>
+          <% } %>
+          </tbody>
+        </table>
+      <% }else{ %>
+        <div class="text-center"> No Upcoming appointments !</div>
+      <% } %>
+      
+    </div>
+    <div class="d-flex align-items-end " style="width: 900px; height: 300px; margin: auto; padding-bottom: 30px;">
+      <div class="d-flex">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
+          <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                
+                <div class="d-flex fledx-row">
+                  <a href="<%=news[0].link%>">
+                  <img class="im" alt="100%x280" src="<%=news[0].urlToImage%>"></a>
+                  <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title"><%= news[0].title %></h4>
+                          <p class="card-text"><%= news[0].content %></p>
+                      </div>
+                  </div>
+              </div>
+            
+              </div>
+              <% for(i=1; i<10; i++) { %> 
+              <div class="carousel-item">
+                <div class="d-flex fledx-row">
+                  <a href="<%=news[i].link%>">
+                    <img class="im" alt="100%x280" src="<%=news[i].urlToImage%>"></a>
+                  <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title"><%= news[i].title  %>  </h4>
+                          <p class="card-text"><%=news[i].content%></p>
+
+                      </div>
+                  </div>
+                  </div>
+              </div>
+            <% } %> 
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
+      </div>
+      </div>
+      
+      <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/wp3592447.jpg" class="d-block w-100" alt="oops">
+          </div>
+          <div class="carousel-item">
+            <img src="img/download.jpg" class="d-block w-100" alt="ooo">
+          </div>
+          <div class="carousel-item">
+            <img src="img/logo.png" class="d-block w-100" alt="ppp">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div> -->
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      
+<!--/.Carousel Wrapper-->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   
+  </body>
+</html>
